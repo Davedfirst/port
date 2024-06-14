@@ -7,7 +7,7 @@ const app = express();
 // Middleware to parse incoming request bodies
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.post('/thank', (req, res) => {
+app.post('/thank.html', (req, res) => {
     const { name, email, message } = req.body;
 
     // Replace these email addresses with your own
