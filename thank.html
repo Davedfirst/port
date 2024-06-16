@@ -4,7 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>XI PORTFOLIO- CONTACT FORM</title>
-<link rel="stylesheet" href="style.css"
+<link rel="stylesheet" href="style.css">
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .body{
+            background-color:yellow-green;
+            opacity: 50%
+        }
+    </style>
 </head>
 <body>
    <section class="contact">
@@ -82,5 +89,35 @@
       </div>
   </div>
 </footer>
+    <script>
+        $(document).ready(function() {
+            $('#contact-form').submit(function(event) {
+                // Prevent the form from submitting normally
+                event.preventDefault();
+                
+                // Serialize form data into JSON
+                var formData = $(this).serializeArray();
+                var jsonData = {};
+                formData.forEach(function(field) {
+                    jsonData[field.name] = field.value;
+                });
+
+                // Send AJAX request to Flask backend
+                $.ajax({
+                    type: 'POST',
+                    url: '/send_email',
+                    contentType: 'application/json',
+                    data: JSON.stringify(jsonData),
+                    success: function(response) {
+                        alert(response.message); // Show success message
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error:', error);
+                        alert('Failed to send email.');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
