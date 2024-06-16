@@ -3,49 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thank You!</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #d4af37, #8b4513);
-            color: white;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 50px 20px;
-            text-align: center;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-
-        p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-        }
-
-        @media screen and (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
-
-            p {
-                font-size: 1rem;
-            }
-        }
-    </style>
+    <title>XI PORTFOLIO- CONTACT FORM</title>
+<link rel="stylesheet" href="style.css"
 </head>
 <body>
-    <div class="container">
-        <h1>Thank You!</h1>
-        <p>Your message has been successfully sent. We will get back to you as soon as possible.</p>
-        <p>Have a great day!</p>
-    </div>
+   <section class="contact">
+      <div class="container">
+          <h2 class="h2" id="contact">Send Message</h2>
+          <div class="contact-content">
+              <div class="contact-textbox">
+    <form action="/send_email" method="post" class="contact-form">
+      <div class="form-field">
+          <label for="name">Name</label>
+          <input type="text" name="name" id="name" required />
+      </div>
+      <div class="form-field">
+          <label for="email">Email</label>
+          <input
+          type="email"
+          name="email"
+          id="email"
+          required
+          inputmode="email"
+          />
+      </div>
+      <div class="form-field">
+          <label for="message">How can I help you?</label>
+          <textarea name="message" id="message" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-cta">Send</button>
+  </form>
+</div>
+</div>
+</section>
+<footer class="footer">
+  <div class="container">
+      <div class="footer-content">
+          <!-- Update href and src attributes -->
+          <nav>
+              <ol class="footer-links">
+                  <li class="footer-link">
+                      <a title="GitHub" href="http://github.com/Davedfirst" target="_blank" rel="noopener"
+                          ><img
+                              loading="lazy"
+                              src="assets/images/social-links/github.svg"
+                              alt="GitHub"
+                      /></a>
+                  </li>
+                  <li class="footer-link">
+                      <a title="Codepen" href="https://github.com/devsyedmohsin" target="_blank" rel="noopener"
+                          ><img
+                              loading="lazy"
+                              src="assets/images/social-links/codepen.svg"
+                              alt="Codepen"
+                      /></a>
+                  </li>
+                  <li class="footer-link">
+                      <a title="Linkedin" href="https://www.linkedin.com/in/davidfolaranmi" target="_blank" rel="noopener"
+                          ><img
+                              loading="lazy"
+                              src="assets/images/social-links/linkedin.svg"
+                              alt="Linkedin"
+                      /></a>
+                  </li>
+                  <li class="footer-link">
+                      <a title="Twitter" href="https://github.com/devsyedmohsin" target="_blank" rel="noopener"
+                          ><img
+                              loading="lazy"
+                              src="assets/images/social-links/twitter.svg"
+                              alt="Twitter"
+                      /></a>
+                  </li>
+              </ol>
+          </nav>
+          <p class="footer-text">
+              &copy; <span>2024</span> - designed & developed by <a target="_blank" rel="noopener" href="https://xidresources.vercel.app">XID RESOURCES.</a>
+          </p>
+      </div>
+  </div>
+</footer>
 </body>
 </html>
