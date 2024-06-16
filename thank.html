@@ -9,7 +9,7 @@
     <script src="mail.js"></script>
     <style>
         .body{
-            background-color:yellow-green;
+            background-color:green;
             opacity: 50%
         }
     </style>
@@ -20,7 +20,7 @@
           <h2 class="h2" id="contact">Send Message</h2>
           <div class="contact-content">
               <div class="contact-textbox">
-    <form action="/send_email" method="post" class="contact-form">
+    <form id="contact-form" action="/MVATqkM7nMfqXG1Giewvfv3y/send_email" method="POST">
       <div class="form-field">
           <label for="name">Name</label>
           <input type="text" name="name" id="name" required />
@@ -91,34 +91,30 @@
   </div>
 </footer>
     <script>
-        $(document).ready(function() {
-            $('#contact-form').submit(function(event) {
-                // Prevent the form from submitting normally
-                event.preventDefault();
-                
-                // Serialize form data into JSON
-                var formData = $(this).serializeArray();
-                var jsonData = {};
-                formData.forEach(function(field) {
-                    jsonData[field.name] = field.value;
-                });
+$(document).ready(function() {
+    $('#contact-form').submit(function(event) {
+        event.preventDefault(); // Prevent form submission
 
-                // Send AJAX request to Flask backend
-                $.ajax({
-                    type: 'POST',
-                    url: '/send_email',
-                    contentType: 'application/json',
-                    data: JSON.stringify(jsonData),
-                    success: function(response) {
-                        alert(response.message); // Show success message
-                    },
-                    error: function(xhr, status, error) {
-                        console.error('Error:', error);
-                        alert('Failed to send email.');
-                    }
-                });
-            });
+        var formData = $(this).serialize(); // Serialize form data
+        var url = '/MVATqkM7nMfqXG1Giewvfv3y/send_email'; // Endpoint on Vercel
+
+        $.ajax({
+            type: 'POST',
+            url: url,
+            data: formData,
+            success: function(response) {
+                alert('Message sent successfully!');
+                // Optionally redirect to a thank you page
+                window.location.href = 'thank.html';
+            },
+            error: function(error) {
+                console.error('Error sending message:', error);
+                alert('Failed to send message.');
+            }
         });
+    });
+});
+
     </script>
 </body>
 </html>
