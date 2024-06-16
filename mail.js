@@ -18,7 +18,7 @@ module.exports = async (req, res) => {
         // Email content and options
         const mailOptions = {
             from: 'cpaboob@gmail.com',
-            to: 'xideleventh@outlook.com', // Destination email address
+            to: 'pholaxi@gmail.com', // Destination email address
             subject: 'New Message from Contact Form',
             text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`
         };
@@ -41,7 +41,7 @@ module.exports = async (req, res) => {
             res.status(200).json({ message: 'Email sent successfully!' });
         } catch (error) {
             console.error('Failed to send email:', error);
-            res.status(500).json({ error: 'Failed to send email.' });
+            res.status(500).json({ error: 'Failed to send email.', details: error.message });
         }
     } else {
         res.status(405).json({ error: 'Method Not Allowed' });
